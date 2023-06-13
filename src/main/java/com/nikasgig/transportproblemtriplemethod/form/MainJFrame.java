@@ -6,6 +6,7 @@ package com.nikasgig.transportproblemtriplemethod.form;
 
 import com.nikasgig.transportproblemtriplemethod.service.BuildService;
 import com.nikasgig.transportproblemtriplemethod.service.InputService;
+import com.nikasgig.transportproblemtriplemethod.service.IsClosedService;
 import com.nikasgig.transportproblemtriplemethod.service.LeastCostMethod;
 import com.nikasgig.transportproblemtriplemethod.service.NorthWestCornerMethod;
 import com.nikasgig.transportproblemtriplemethod.service.OutputService;
@@ -61,6 +62,7 @@ public class MainJFrame extends javax.swing.JFrame {
         button4 = new java.awt.Button();
         button5 = new java.awt.Button();
         button6 = new java.awt.Button();
+        label9 = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Transport Problem Triple Method Application");
@@ -83,7 +85,7 @@ public class MainJFrame extends javax.swing.JFrame {
         label2.setText("Demand:");
 
         label3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        label3.setText("Costs:");
+        label3.setText("Consumers:");
 
         label4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         label4.setText("Variables:");
@@ -187,6 +189,10 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        label9.setAlignment(java.awt.Label.CENTER);
+        label9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        label9.setText("...");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -198,7 +204,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -211,7 +217,10 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -262,7 +271,9 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -320,6 +331,7 @@ public class MainJFrame extends javax.swing.JFrame {
         LeastCostMethod problem = new LeastCostMethod(inputService.getA(), inputService.getB(), inputService.getC());
         Object[] result = problem.solve();
         OutputService.showResult(frame, result, tempData[0], tempData[1]);
+        IsClosedService.task(frame, inputService.getB(), inputService.getC());
     }//GEN-LAST:event_button4ActionPerformed
 
     private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
@@ -332,6 +344,7 @@ public class MainJFrame extends javax.swing.JFrame {
         VogelsApproximationMethod problem = new VogelsApproximationMethod(inputService.getA(), inputService.getB(), inputService.getC());
         Object[] result = problem.solve();
         OutputService.showResult(frame, result, tempData[0], tempData[1]);
+        IsClosedService.task(frame, inputService.getB(), inputService.getC());
     }//GEN-LAST:event_button5ActionPerformed
 
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
@@ -344,6 +357,7 @@ public class MainJFrame extends javax.swing.JFrame {
         NorthWestCornerMethod problem = new NorthWestCornerMethod(inputService.getA(), inputService.getB(), inputService.getC());
         Object[] result = problem.solve();
         OutputService.showResult(frame, result, tempData[0], tempData[1]);
+        IsClosedService.task(frame, inputService.getB(), inputService.getC());
     }//GEN-LAST:event_button6ActionPerformed
 
     /**
@@ -407,5 +421,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private java.awt.Label label5;
     private java.awt.Label label6;
     private java.awt.Label label8;
+    public java.awt.Label label9;
     // End of variables declaration//GEN-END:variables
 }

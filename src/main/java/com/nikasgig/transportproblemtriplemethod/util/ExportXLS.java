@@ -50,7 +50,7 @@ public class ExportXLS {
         counter++;
         row = sheet.createRow(counter);
         cell = row.createCell(0);
-        cell.setCellValue("Costs:");
+        cell.setCellValue("Consumers:");
         counter++;
         
         row = sheet.createRow(counter);
@@ -171,7 +171,7 @@ public class ExportXLS {
         counter++;
         row = sheet.createRow(counter);
         cell = row.createCell(0);
-        cell.setCellValue("Costs:");
+        cell.setCellValue("Consumers:");
         counter++;
         
         row = sheet.createRow(counter);
@@ -292,7 +292,7 @@ public class ExportXLS {
         counter++;
         row = sheet.createRow(counter);
         cell = row.createCell(0);
-        cell.setCellValue("Costs:");
+        cell.setCellValue("Consumers:");
         counter++;
         
         row = sheet.createRow(counter);
